@@ -1,3 +1,4 @@
 log/
 .cpcache/
 target/
+project.jar
