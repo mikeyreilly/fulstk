@@ -1,21 +1,7 @@
-(ns ^:figwheel-hooks quaxt.cstest.frontend.main
+(ns ^:figwheel-hooks quaxt.fulstk.frontend.main
   (:require [reagent.core :as r]
             [reagent.dom :as rdom]
             [clojure.string :as str]))
-
-;; (js/console.log "Hello, borld")
-
-;; ;; This is called once
-;; (defonce init
-;;   (do (set! (.-innerHTML (js/document.getElementById "app"))
-;;             "<p>Loaded cstest!</p>
-;;             <p>Edit <strong><code>src/quaxt/cstest/frontend/main.cljs</code></strong> to change this message.</p>")
-;;       true))
-
-;; ;; This is called every time you make a code change
-;; (defn ^:after-load reload []
-;;   (set! (.-innerText (js/document.getElementById "app")) "snot Reloaded cstest!"))
-
 
 (defonce timer (r/atom (js/Date.)))
 

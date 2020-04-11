@@ -1,4 +1,4 @@
-(ns quaxt.cstest.core
+(ns quaxt.fulstk.core
   (:require
     [yada.yada :as yada]
     [integrant.core :as ig]))
