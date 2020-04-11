@@ -1,9 +1,20 @@
 * Full stack Clojure + ClojureScript + Reagent Application Template
 
-This template is based on Juxt Edge.
+This template is based on Juxt Edge
 
-To run
+To run in dev mode first execute
 
 #+BEGIN_SRC sh
-clj -A:dev:dev/build:build
+clojure -A:dev:dev/build:build
+#+END_SRC
+
+then at the REPL enter
+#+BEGIN_SRC clojure
+(dev) (go)
+#+END_SRC
+
+to make a production uberjar
+#+BEGIN_SRC sh
+clojure -A:prod:prod/build:build:build/once
+lib/bin/onejar -A:prod:prod/build:build --args '-m edge.main' project.jar
 #+END_SRC
