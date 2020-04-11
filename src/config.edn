@@ -1,0 +1,34 @@
+{:edge.kick/config
+ {:kick.builder/target #profile {:dev "target/dev"
+                                 :prod "target/prod"}
+  :kick/figwheel-main {:builds [{:id "app"
+                                 :main quaxt.cstest.frontend.main
+                                 :output-to "public/frontend.js"
+                                 :output-dir "public/frontend.out"
+                                 :asset-path "/frontend.out"
+                                 :optimizations #profile {:dev :none
+                                                          :prod :advanced}}]
+                       :figwheel-config
+                       {:ring-server-options
+                        {:port 4400}}}}
+
+ :ig.system/base
+ {:quaxt.cstest.core/string "Hello, cstest!"
+  :quaxt.cstest.core/routes [
+                             #ig/ref [:quaxt.cstest/index :edge.yada.ig/classpath-name]
+                             #ig/ref :quaxt.cstest.core/string
+                             #ig/ref [:quaxt.cstest/assets :edge.yada.ig/resources]
+                             ]
+  [:edge.yada.ig/classpath-name :quaxt.cstest/index] {:name "index.html"}
+  [:edge.yada.ig/resources :quaxt.cstest/assets] {:path "public"}
+  :edge.yada.ig/listener {:handler #ig/ref :edge.bidi.ig/vhost
+                          :port 8383}
+  :edge.bidi.ig/vhost [["http://localhost:8383"
+                        #ig/ref :quaxt.cstest.core/routes]]}
+
+ :ig.system/dev
+ {:edge.kick/builder #ref [:edge.kick/config]}
+
+ :ig/system #profile {:dev #merge [#ref [:ig.system/base]
+                                   #ref [:ig.system/dev]]
+                      :default #ref [:ig.system/base]}}

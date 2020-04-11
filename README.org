@@ -1,0 +1,9 @@
+* Full stack Clojure + ClojureScript + Reagent Application Template
+
+This template is based on Juxt Edge.
+
+To run
+
+#+BEGIN_SRC sh
+clj -A:dev:dev/build:build
+#+END_SRC
