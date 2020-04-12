@@ -1,4 +1,6 @@
-log/
 .cpcache/
-target/
+.nrepl-port
+log/
 project.jar
+src/.secrets.edn
+target/

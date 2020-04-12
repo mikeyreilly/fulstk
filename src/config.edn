@@ -1,4 +1,5 @@
-{:edge.kick/config
+{:secrets #include ".secrets.edn"
+ :edge.kick/config
  {:kick.builder/target #profile {:dev "target/dev"
                                  :prod "target/prod"}
   :kick/figwheel-main {:builds [{:id "app"
@@ -13,12 +14,11 @@
                         {:port 4400}}}}
 
  :ig.system/base
- {:quaxt.fulstk.core/string "Hello, fulstk!"
-  :quaxt.fulstk.core/routes [
-                             #ig/ref [:quaxt.fulstk/index :edge.yada.ig/classpath-name]
-                             #ig/ref :quaxt.fulstk.core/string
-                             #ig/ref [:quaxt.fulstk/assets :edge.yada.ig/resources]
-                             ]
+ {:quaxt.fulstk.core/db-pool {:dbtype "mysql" :dbname "fulstk" :username "fulstk"
+                              :password #ref [:secrets :password]}
+  :quaxt.fulstk.core/routes [#ig/ref [:quaxt.fulstk/index :edge.yada.ig/classpath-name]
+                             #ig/ref [:quaxt.fulstk.core/db-pool]
+                             #ig/ref [:quaxt.fulstk/assets :edge.yada.ig/resources]]
   [:edge.yada.ig/classpath-name :quaxt.fulstk/index] {:name "index.html"}
   [:edge.yada.ig/resources :quaxt.fulstk/assets] {:path "public"}
   :edge.yada.ig/listener {:handler #ig/ref :edge.bidi.ig/vhost

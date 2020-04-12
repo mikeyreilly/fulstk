@@ -1,7 +1,10 @@
 {:paths ["src"]
 
  :deps
- {aleph {:mvn/version "0.4.6"}
+ {seancorfield/next.jdbc {:mvn/version "1.0.424"}
+  mysql/mysql-connector-java {:mvn/version "8.0.19"}
+  com.zaxxer/HikariCP {:mvn/version  "3.4.2"}
+  aleph {:mvn/version "0.4.6"}
   org.clojure/clojure {:mvn/version "1.10.0"}
   juxt.edge/lib.app {:local/root "lib/edge.app"}
   yada {:mvn/version "1.4.0-alpha1"}
