@@ -1,6 +1,9 @@
 * Full stack Clojure + ClojureScript + Reagent Application Template
 
-This template is based on Juxt Edge
+Fulstk (pronounced fulstk). A Clojure(Script) full stack template.
+
+This template is based on Juxt Edge. It sets up ClojureScript,
+Reagent, Integrant, Yada and DB access.
 
 To run in dev mode first execute
 
